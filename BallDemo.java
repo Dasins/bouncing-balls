@@ -94,6 +94,7 @@ public class BallDemo
     private BouncingBall bolaAleatoria(int suelo) {
         Random aleatorio = new Random();
         int diametro = aleatorio.nextInt(41) + 10;
-        return new BouncingBall(50, 50, diametro, Color.BLUE, suelo, myCanvas);
+        Color color = new Color(aleatorio.nextInt(256),aleatorio.nextInt(256),aleatorio.nextInt(256));
+        return new BouncingBall(50, 50, diametro, color, suelo, myCanvas);
     }
 }
