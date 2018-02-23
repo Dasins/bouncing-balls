@@ -21,37 +21,6 @@ public class BallDemo
     {
         myCanvas = new Canvas("Ball Demo", 600, 500);
     }
-
-    /**
-     * Simulate two bouncing balls
-     */
-    public void bounce()
-    {
-        int ground = 400;   // position of the ground line
-
-        myCanvas.setVisible(true);
-
-        // draw the ground
-        myCanvas.drawLine(50, ground, 550, ground);
-
-        // crate and show the balls
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
-        ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
-        ball2.draw();
-
-        // make them bounce
-        boolean finished =  false;
-        while(!finished) {
-            myCanvas.wait(50);           // small delay
-            ball.move();
-            ball2.move();
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
-                finished = true;
-            }
-        }
-    }
     
     /**
      * Simula tantas bolas saltarinas aleatorias como se indica por parametro.
@@ -91,6 +60,7 @@ public class BallDemo
     /**
      * Hace que todas las bolas de la coleccion indicada por parametro se pongan a botar, hasta que una se salga del suelo por la derecha.
      * @param bolas La coleccion de bolas que se quiere hacer rebotar.
+     * @param limiteDerecho La ultima posicion sobre x a la derecha del suelo.
      */
     private void botar(ArrayList<BouncingBall> bolas, int limiteDerecho) {
         boolean finalizado =  false;
